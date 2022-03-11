@@ -52,3 +52,4 @@ visualizarRanking = async () => {
     botaoClicado = true
 }
 
+
