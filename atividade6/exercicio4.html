@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <input type="button" value="Incrementar" onClick="incrementarContador()">
+    <script type="text/babel">
+        // Crie um componente em React para atualizar o valor de um contador em 1 unidade após clicar sobre um botão, conforme mostrado na imagem abaixo. OBS: Sempre que o botão for clicado o valor do contador será incrementado em 1 unidade em relação ao valor anterior.
+        var contador = 0
+
+        const elemento = <p>Contador = 0 </p>
+        ReactDOM.render(elemento, document.getElementById("root"))
+
+        function incrementarContador (){
+            contador++
+            const elemento1 = <p>Contador = {contador}</p>
+            ReactDOM.render(elemento1, document.getElementById("root"))
+        }      
+    </script>
+</body>
+</html>
