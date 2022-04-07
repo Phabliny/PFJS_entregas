@@ -11,19 +11,23 @@
 </head>
 <body>
     <div id="root"></div>
-    <input type="button" value="Incrementar" onClick="incrementarContador()">
+    
     <script type="text/babel">
         // Crie um componente em React para atualizar o valor de um contador em 1 unidade após clicar sobre um botão, conforme mostrado na imagem abaixo. OBS: Sempre que o botão for clicado o valor do contador será incrementado em 1 unidade em relação ao valor anterior.
         var contador = 0
+        function IncrementarContador() {
+            const elemento = (<div>
+                                <p>Contador = {contador++}</p>
+                                <input type="button" value="Incrementar" onClick={renderizarContador}/>
+                            </div>)
+            return elemento
+        }
 
-        const elemento = <p>Contador = 0 </p>
-        ReactDOM.render(elemento, document.getElementById("root"))
+        function renderizarContador (){
+            ReactDOM.render(<IncrementarContador/>, document.getElementById("root"))
+        }
 
-        function incrementarContador (){
-            contador++
-            const elemento1 = <p>Contador = {contador}</p>
-            ReactDOM.render(elemento1, document.getElementById("root"))
-        }      
+        renderizarContador()
     </script>
 </body>
 </html>

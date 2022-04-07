@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 6</title>
+    <title>Exercício 7</title>
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -12,42 +12,38 @@
         .caixa {
             border: 1px solid black;
             background-color: #f08080;
+            position: absolute
         }
     </style>
 </head>
 <body>
+    <input type="button" value="Exibir caixa" onclick="renderizar()">
     <div id="root"></div>
+    
     <script type="text/babel">
         // Crie um componente em React para exibir dentro de uma “caixa (<div>)” o nome de uma pessoa. O nome, largura e a altura da caixa deverão ser informados pelo usuário. OBS: Defina uma classe CSS para aplicar uma borda e a cor de fundo da caixa, conforme mostrado nas imagens abaixo.
         
-        const nome = prompt("Qual o seu PRIMEIRO nome?")
+        const nome = prompt("Qual o seu PRIMEIRO nome?", "Phabliny")
 
         var largura = -1
         do {
-            largura = parseInt(prompt("Qual a LARGURA da caixa (0 a 400)"))
+            largura = parseInt(prompt("Qual a LARGURA da caixa (0 a 400)", 100))
         } while(largura < 0 || largura > 400 || isNaN(largura))
         
         console.log(largura)
         var altura = -1
         do {
-            altura = parseInt(prompt("Qual a ALTURA da caixa (0 a 400)"))
+            altura = parseInt(prompt("Qual a ALTURA da caixa (0 a 400)", 100))
         } while(altura < 0 || altura > 400 || isNaN(altura))
 
         function Paragrafo (props) {
-            return(<div className="caixa" style={{width:props.width+"px", height:props.height+"px"}}><p>Olá, {props.name}!</p></div>)
+            var top = parseInt((Math.random() * (document.documentElement.scrollHeight - altura)))
+            var right = parseInt((Math.random() * (document.documentElement.scrollWidth - largura)))
+            return(<div className="caixa" style={{width:props.width+"px", height:props.height+"px", top:top, right:right, }}><p>Olá, {props.name}!</p></div>)
         }
-        ReactDOM.render(<Paragrafo name={nome} width={largura} height={altura}/>, document.getElementById("root"))
-        
-        /*const estilo = {
-            width: largura,
-            height: altura
+        function renderizar(){
+            ReactDOM.render(<Paragrafo name={nome} width={largura} height={altura}/>, document.getElementById("root"))
         }
-
-        function Paragrafo () {
-            return(<div className="caixa" style={estilo}><p>Olá, {nome}!</p></div>)
-        }
-        ReactDOM.render(<Paragrafo/>, document.getElementById("root"))*/
-        
     </script>
 </body>
 </html>

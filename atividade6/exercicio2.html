@@ -13,9 +13,18 @@
     <div id="root"></div>
     <script type="text/babel">
         // Crie um componente em React para exibir de forma ESTÁTICA o horário atual da máquina do usuário num parágrafo a ser exibido na janela do navegador
-        var dataAtual = new Date();
-        const elemento = <p>{(dataAtual.getHours() < 10) ? "0" + dataAtual.getHours() : dataAtual.getHours()}:{(dataAtual.getMinutes() < 10) ? "0" + dataAtual.getMinutes() : dataAtual.getMinutes()}:{(dataAtual.getSeconds() < 10) ? "0" + dataAtual.getSeconds() : dataAtual.getSeconds()}</p>
-        ReactDOM.render(elemento, document.getElementById("root"))
+
+        /*function HoraAtual() {
+            var dataAtual = new Date()
+            return <p>{(dataAtual.getHours() < 10) ? "0" + dataAtual.getHours() : dataAtual.getHours()}:{(dataAtual.getMinutes() < 10) ? "0" + dataAtual.getMinutes() : dataAtual.getMinutes()}:{(dataAtual.getSeconds() < 10) ? "0" + dataAtual.getSeconds() : dataAtual.getSeconds()}</p>
+        }
+        ReactDOM.render(<HoraAtual/>, document.getElementById("root"))*/
+
+        function HoraAtual() {
+            var dataAtual = new Date()
+            return <p>{dataAtual.toLocaleTimeString()}</p>
+        }
+        ReactDOM.render(<HoraAtual/>, document.getElementById("root"))
     </script>
 </body>
 </html>

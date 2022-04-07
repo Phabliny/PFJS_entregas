@@ -11,25 +11,27 @@
 </head>
 <body>
     <div id="root"></div>
-    <input type="button" value="Play contador" onClick="start()">
     <script type="text/babel">
         // Refatore o exercício anterior para criar um componente para atualizar o valor de um contador em 1 unidade automaticamente (a cada intervalo de 1 segundo) após clicar sobre um botão.
         var contador = 0
-        var timer = null
 
-        const elemento = <p>Contador = 0 </p>
-        ReactDOM.render(elemento, document.getElementById("root"))
-        
         function start() {
-            clearInterval(timer)
-            timer = setInterval(mostrarContador, 1000)
+            setInterval(renderizarContador, 1000)
+        } 
+
+        function IncrementarContador() {
+            const elemento = (<div>
+                                <p>Contador = {contador++}</p>
+                                <input type="button" value="Play contador" onClick={start}/>
+                            </div>)
+            return elemento
         }
 
-        function mostrarContador (){
-            contador++
-            const elemento1 = <p>Contador = {contador}</p>
-            ReactDOM.render(elemento1, document.getElementById("root"))
-        }     
+        function renderizarContador (){
+            ReactDOM.render(<IncrementarContador/>, document.getElementById("root"))
+        }
+
+        renderizarContador()
     </script>
 </body>
 </html>

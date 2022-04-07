@@ -13,8 +13,10 @@
     <div id="root"></div>
     <script type="text/babel">
         // Crie um componente em React para renderizar o texto “Hello, World!” num parágrafo a ser exibido na janela do navegador
-        const elemento = <p>Hello, World!</p>
-        ReactDOM.render(elemento, document.getElementById("root"))
+        function HelloWorld() {
+            return <p>Hello, World!</p>
+        }
+        ReactDOM.render(<HelloWorld/>, document.getElementById("root"))
     </script>
 </body>
 </html>

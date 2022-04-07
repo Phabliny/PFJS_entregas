@@ -13,13 +13,15 @@
     <div id="root"></div>
     <script type="text/babel">
         // Refatore o exercício anterior para a exibir de forma DINÂMICA o horário atual da máquina do usuário num parágrafo a ser exibido na janela do navegador
-        
-        function verHoraAtualizada (){
-            var dataAtual = new Date();
-            const elemento = <p>{(dataAtual.getHours() < 10) ? "0" + dataAtual.getHours() : dataAtual.getHours()}:{(dataAtual.getMinutes() < 10) ? "0" + dataAtual.getMinutes() : dataAtual.getMinutes()}:{(dataAtual.getSeconds() < 10) ? "0" + dataAtual.getSeconds() : dataAtual.getSeconds()}</p>
-            ReactDOM.render(elemento, document.getElementById("root"))
+        function VerHoraAtualizada (){
+            var dataAtual = new Date()
+            return <p>{dataAtual.toLocaleTimeString()}</p>
         }
-        setInterval(verHoraAtualizada, 1000)
+        function renderizar(){
+            ReactDOM.render(<VerHoraAtualizada/>, document.getElementById("root"))
+        }
+
+        setInterval(renderizar, 1000)
     </script>
 </body>
 </html>
