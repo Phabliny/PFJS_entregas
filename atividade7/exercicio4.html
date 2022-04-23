@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .container {
+            width: 300px;
+            text-align: center;
+        }
+
+        .paragrafo {
+            color: blue;
+            font-size: 25px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class Smartphone extends React.Component { 
+            constructor (props){ 
+                super(props)
+                this.state = { telefone : {
+                    modelo: "Samsung Galaxy S21",
+                    preco: "R$5.399,00",
+                    urlImg: "./img/telefone1.jpg"
+                }}
+            }
+
+            render() {       
+                    return <div className="container">
+                            <img src={this.state.telefone.urlImg} width="200px" height="300px"/>
+                            <h2>{this.state.telefone.modelo}</h2>
+                            <p className="paragrafo">{this.state.telefone.preco}</p>
+                        </div>
+            }
+        }
+
+        ReactDOM.render(<Smartphone/>, document.getElementById("root"))
+
+    </script>
+    
+</body>
+</html>

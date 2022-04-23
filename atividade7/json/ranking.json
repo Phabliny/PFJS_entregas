@@ -1,0 +1,18 @@
+{"users": [ 
+    {
+        "nome" : "Wilton Filho", 
+        "pontuacao": "10"
+    },
+    {
+        "nome" : "Maria José", 
+        "pontuacao": "20"
+    },
+    {
+        "nome" : "Phabliny", 
+        "pontuacao": "30"
+    },
+    {
+        "nome" : "Sophia", 
+        "pontuacao": "50"
+    }
+]}

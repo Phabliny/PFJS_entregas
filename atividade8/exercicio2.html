@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .separar{
+            display:block;
+            margin: 1px;
+        }
+    </style>
+        
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        /*
+            2) Crie um componente para renderizar uma calculadora numa página web contendo o mesmo layout mostrado  na  figura  abaixo. A  calculadora deverá calcular  a  soma  dos dois  primeiros valores  informados  nas  duas  primeiras  páginasapós  clicar  sobre  o  botão “Somar”.  Fique  à vontade para realizar as validações dos dois primeiros campos (!=vazio, !=números, etc.)
+        */
+
+        class Calculadora extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {valor1: "", valor2: "", resultado: ""}
+            }
+
+            render() {
+                return (<div>
+                            <h1>Calculadora</h1>
+                            <form>
+                                <input type="text" name="valor1" onChange={this.setData} className="separar" placeholder="valor 1"/>
+                                <input type="text" name="valor2" onChange={this.setData} className="separar" placeholder="valor 2"/>
+                                <input type="button" value="somar" onClick={this.validar} className="separar"/>
+                                <input type="text" name="resultado" className="separar" value={this.state.resultado} placeholder="resultado" />
+                            </form>
+                        </div>)
+            }
+            setData = (event) => {
+                this.setState({[event.target.name]: event.target.value})
+            }
+
+            validar = () => {
+                if(this.state.valor1 == "") alert("favor informar o primeiro valor!")
+                else if(this.state.valor2 == "") alert("favor informar o segundo valor!")
+                else {
+                    /*if((typeof valor1 == numeric)||(typeof valor2 == numeric))
+                        alert("Favor informar apenas números, caracteres são inválidos.")
+                    else*/
+                    this.setState({resultado: parseInt(this.state.valor1) + parseInt(this.state.valor2)})}
+                    console.log(typeof this.state.valor1)
+                    console.log(typeof this.state.valor2)
+            }    
+        }
+
+        ReactDOM.render(<Calculadora/>, document.getElementById("root"));
+    </script>
+    
+</body>
+</html>

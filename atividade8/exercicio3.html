@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .separar{
+            display:block;
+            margin: 1px;
+        }
+    </style>
+        
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        /*
+            3) Refatore o exercício anterior (crie uma nova página) e adiciona as outras operações aritméticas básicas da matemática, conforme mostrado na imagem abaixo:
+        */
+
+        class Calculadora extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {valor1: "", valor2: "", resultado: 0}
+            }
+
+            render() {
+                return (<div>
+                            <h1>Calculadora</h1>
+                            <form>
+                                <input type="text" name="valor1" onChange={this.setData} className="separar" placeholder="valor 1"/>
+                                <input type="text" name="valor2" onChange={this.setData} className="separar" placeholder="valor 2"/>
+                                <input type="button" value="+" onClick={this.validarSoma}/>
+                                <input type="button" value="-" onClick={this.validarSubtracao}/>
+                                <input type="button" value="*" onClick={this.validarMultiplicacao}/>
+                                <input type="button" value="/" onClick={this.validarDivisao}/>
+                                <input type="text" name="resultado" className="separar" value={this.state.resultado} placeholder="resultado"/>
+                            </form>
+                        </div>)
+            }
+            setData = (event) => {
+                this.setState({[event.target.name]: event.target.value})
+            }
+
+            validarSoma = () => {
+                if(this.state.valor1 == "") alert("favor informar o primeiro valor!")
+                else if(this.state.valor2 == "") alert("favor informar o segundo valor!")
+                else this.setState({resultado: parseInt(this.state.valor1) + parseInt(this.state.valor2)})
+            }    
+
+            validarSubtracao = () =>{
+                if(this.state.valor1 == "") alert("favor informar o primeiro valor!")
+                else if(this.state.valor2 == "") alert("favor informar o segundo valor!")
+                else this.setState({resultado: parseInt(this.state.valor1) - parseInt(this.state.valor2)})
+            }   
+
+            validarMultiplicacao = () => {
+                if(this.state.valor1 == "") alert("favor informar o primeiro valor!")
+                else if(this.state.valor2 == "") alert("favor informar o segundo valor!")
+                else this.setState({resultado: parseInt(this.state.valor1) * parseInt(this.state.valor2)})
+            }   
+
+            validarDivisao = () => {
+                if(this.state.valor1 == "") alert("favor informar o primeiro valor!")
+                else if(this.state.valor2 == "") alert("favor informar o segundo valor!")
+                else this.setState({resultado: parseInt(this.state.valor1) / parseInt(this.state.valor2)})
+            }   
+        }
+
+        ReactDOM.render(<Calculadora/>, document.getElementById("root"));
+    </script>
+    
+</body>
+</html>

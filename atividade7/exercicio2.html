@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .alerta {
+            color:red
+        }
+
+        table, tr, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class Ranking extends React.Component { 
+            constructor (props){ 
+                super(props)
+                this.state = { rank: [ // um vetor de objetos
+                    {
+                        nome : "Wilton Filho", 
+                        pontuacao : 10
+                    },
+                    {
+                        nome : "Maria José", 
+                        pontuacao : 20
+                    }
+                ]}
+            }
+
+            render() {       
+                    return <div>
+                                <table>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Pontuação</th>
+                                    </tr>
+                                    {this.state.rank.map(rank=>
+                                        <tr>
+                                        <td>{rank.nome}</td>
+                                        <td>{rank.pontuacao}</td>                                        
+                                    </tr>
+                                    )}
+                                    
+                                </table> 
+                        </div>
+            }
+        }
+
+        /*render() {       
+                    return <div>
+                                <table>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Pontuação</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{this.state.rank[0].nome}</td>
+                                        <td>{this.state.rank[0].pontuacao}</td>                                        
+                                    </tr>
+                                    <tr>
+                                        <td>{this.state.rank[1].nome}</td>
+                                        <td>{this.state.rank[1].pontuacao}</td>
+                                    </tr>
+                                </table> 
+                        </div>
+        }*/
+    
+
+        ReactDOM.render(<Ranking/>, document.getElementById("root"))
+
+
+    </script>
+    
+</body>
+</html>

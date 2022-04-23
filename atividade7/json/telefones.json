@@ -1,0 +1,17 @@
+{"telefones": [
+    {
+        "modelo": "Samsung Galaxy S21",
+        "preco": "R$5.399,00",
+        "urlImg": "./img/telefone1.jpg"
+    },
+    {   
+        "modelo": "Zenfone 8",
+        "preco": "R$3.279,00",
+        "urlImg": "./img/telefone2.jpg"
+    },
+    {   
+        "modelo": "Iphone 13s",
+        "preco": "R$7.219,00",
+        "urlImg": "./img/telefone3.jpg"
+    }
+]}

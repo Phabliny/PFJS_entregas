@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .separar{
+            display:block;
+            margin: 1px;
+        }
+    </style>
+        
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        /*
+            1) Crie um componente para renderizar uma tela de  LOGIN numa página web composta pelos campos  de  usuário  e  senha,  além  de  um  botãopara  validar  o  formulário.  O botão “Entrar” deverá verificar se as informações de usuário e senha são diferentes de vazio.
+        */
+
+        class Login extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {username: "", pwd: ""}
+            }
+
+            render() {
+                return (<div>
+                            <h1>Login</h1>
+                            <form>
+                                <input type="text" name="username" onChange={this.setData} className="separar" placeholder="Usuário"/>
+                                <input type="text" name="pwd" onChange={this.setData} className="separar" placeholder="Senha"/>
+                                <input type="button" value="Entrar" onClick={this.validar} className="separar"/>
+                            </form>
+                        </div>)
+            }
+            setData = (event) => {
+                this.setState({[event.target.name]: event.target.value})
+            }
+
+            validar = () => {
+                if(this.state.username == "") alert("favor informar o nome!")
+                else if(this.state.pwd == "") alert("favor informar a senha!")
+                else alert("Validado!")
+            }
+        }
+
+        ReactDOM.render(<Login/>, document.getElementById("root"));
+    </script>
+    
+</body>
+</html>
