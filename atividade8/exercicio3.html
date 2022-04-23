@@ -34,13 +34,13 @@
                 return (<div>
                             <h1>Calculadora</h1>
                             <form>
-                                <input type="text" name="valor1" onChange={this.setData} className="separar" placeholder="valor 1"/>
-                                <input type="text" name="valor2" onChange={this.setData} className="separar" placeholder="valor 2"/>
+                                <input type="number" name="valor1" onChange={this.setData} className="separar" placeholder="valor 1"/>
+                                <input type="number" name="valor2" onChange={this.setData} className="separar" placeholder="valor 2"/>
                                 <input type="button" value="+" onClick={this.validarSoma}/>
                                 <input type="button" value="-" onClick={this.validarSubtracao}/>
                                 <input type="button" value="*" onClick={this.validarMultiplicacao}/>
                                 <input type="button" value="/" onClick={this.validarDivisao}/>
-                                <input type="text" name="resultado" className="separar" value={this.state.resultado} placeholder="resultado"/>
+                                <input type="number" name="resultado" className="separar" value={this.state.resultado} placeholder="resultado"/>
                             </form>
                         </div>)
             }

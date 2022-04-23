@@ -34,10 +34,10 @@
                 return (<div>
                             <h1>Calculadora</h1>
                             <form>
-                                <input type="text" name="valor1" onChange={this.setData} className="separar" placeholder="valor 1"/>
-                                <input type="text" name="valor2" onChange={this.setData} className="separar" placeholder="valor 2"/>
+                                <input type="number" name="valor1" onChange={this.setData} className="separar" placeholder="valor 1"/>
+                                <input type="number" name="valor2" onChange={this.setData} className="separar" placeholder="valor 2"/>
                                 <input type="button" value="somar" onClick={this.validar} className="separar"/>
-                                <input type="text" name="resultado" className="separar" value={this.state.resultado} placeholder="resultado" />
+                                <input type="number" name="resultado" className="separar" value={this.state.resultado} placeholder="resultado" />
                             </form>
                         </div>)
             }
@@ -48,13 +48,7 @@
             validar = () => {
                 if(this.state.valor1 == "") alert("favor informar o primeiro valor!")
                 else if(this.state.valor2 == "") alert("favor informar o segundo valor!")
-                else {
-                    /*if((typeof valor1 == numeric)||(typeof valor2 == numeric))
-                        alert("Favor informar apenas números, caracteres são inválidos.")
-                    else*/
-                    this.setState({resultado: parseInt(this.state.valor1) + parseInt(this.state.valor2)})}
-                    console.log(typeof this.state.valor1)
-                    console.log(typeof this.state.valor2)
+                else this.setState({resultado: parseInt(this.state.valor1) + parseInt(this.state.valor2)})
             }    
         }
 
